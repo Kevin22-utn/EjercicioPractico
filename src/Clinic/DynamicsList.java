@@ -7,7 +7,12 @@ package Clinic;
 /**
  *
  * @author matam
+ * @param <T>
+ * @param <K>
  */
-public interface DynamicsList {
+public interface DynamicsList <T,K>{
+    public boolean add(T item);
+    public int size();
+    public boolean isEmpty();
     
 }
