@@ -5,6 +5,7 @@
 package medicalrecords;
 
 import Clinic.SequentialDynamicsLists;
+import java.util.Iterator;
 import java.util.Stack;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Stack;
  * @author ricar
 >>>>>>> Stashed changes
  */
-public class MedicalRecordsList implements SequentialDynamicsLists<MedicalRecord,>{
+public class MedicalRecordsList implements SequentialDynamicsLists<MedicalRecord>{
     private Stack<MedicalRecord> medicalHistory;
 
     @Override
@@ -29,7 +30,12 @@ public class MedicalRecordsList implements SequentialDynamicsLists<MedicalRecord
     }
 
     @Override
-    public boolean add(Object item) {
+    public boolean add(MedicalRecord item) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Iterator getALL() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -42,6 +48,5 @@ public class MedicalRecordsList implements SequentialDynamicsLists<MedicalRecord
     public boolean isEmpty() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
     
 }
