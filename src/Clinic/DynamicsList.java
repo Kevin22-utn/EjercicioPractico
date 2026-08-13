@@ -4,6 +4,8 @@
  */
 package Clinic;
 
+import java.util.Iterator;
+
 /**
  *
  * @author matam
@@ -11,6 +13,7 @@ package Clinic;
  */
 public interface DynamicsList <T>{
     public boolean add(T item);
+    public Iterator getALL();
     public int size();
     public boolean isEmpty();
     
