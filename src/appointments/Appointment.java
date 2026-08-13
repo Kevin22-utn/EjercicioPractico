@@ -59,7 +59,7 @@ public class Appointment {
     }
 
     public void cancel(){
-        
+        return ;
     }
 
     public boolean isPending(){
