@@ -8,9 +8,8 @@ package Clinic;
  *
  * @author matam
  * @param <T>
- * @param <K>
  */
-public interface DynamicsList <T,K>{
+public interface DynamicsList <T>{
     public boolean add(T item);
     public int size();
     public boolean isEmpty();
