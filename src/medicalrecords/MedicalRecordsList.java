@@ -5,6 +5,7 @@
 package medicalrecords;
 
 import Clinic.SequentialDynamicsLists;
+import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.Stack;
 
@@ -21,32 +22,41 @@ public class MedicalRecordsList implements SequentialDynamicsLists<MedicalRecord
 
     @Override
     public MedicalRecord get() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try{
+            return medicalHistory.peek();
+        }catch(EmptyStackException e){
+            return null;
+        }
     }
 
     @Override
     public boolean remove() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try{
+            return medicalHistory.pop()!=null;
+        }catch(EmptyStackException e){
+            return false;
+        }
     }
 
     @Override
     public boolean add(MedicalRecord item) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return medicalHistory.add(item);
     }
 
     @Override
     public Iterator getALL() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(medicalHistory.isEmpty())return null;
+        return medicalHistory.iterator();
     }
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return medicalHistory.size();
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return medicalHistory.isEmpty();
     }
     
 }
