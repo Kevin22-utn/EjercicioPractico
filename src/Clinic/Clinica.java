@@ -6,7 +6,7 @@ package Clinic;
 
 import appointments.Appointment;
 import patients.PatientsList;
-import appointments.WaitingRoomLists;
+import WaitingRooms.WaitingRoomLists;
 import appointments.appointmentsList;
 import java.time.LocalDate;
 import java.time.LocalTime;

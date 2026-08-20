@@ -18,19 +18,19 @@ public class FrmPatients extends javax.swing.JFrame implements View<Appointment>
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmPatients.class.getName());
     private ClinicControl control;
     private Frmappointments vistaCitas;
+    private javax.swing.JTable tblAppointments;
 
     public FrmPatients() {
         initComponents();
         this.control = ClinicControl.getInstance(this);
     }
 
-    // Constructor para enlazar la vista que contiene la JTable
     public FrmPatients(Frmappointments vistaCitas) {
         initComponents();
-        this.vistaCitas = vistaCitas;
+        this.vistaCitas = vistaCitas; 
         this.control = ClinicControl.getInstance(this);
     }
-
+    
     public void setVistaCitas(Frmappointments vistaCitas) {
         this.vistaCitas = vistaCitas;
     }
@@ -74,153 +74,195 @@ public class FrmPatients extends javax.swing.JFrame implements View<Appointment>
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCargar = new javax.swing.JButton();
-        btnReprogramar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
-        btnAgendar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnGestionarCitas = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        txtId = new javax.swing.JTextField();
+        txtFullName = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        btnNuevo = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnCargar.setText("Cargar");
-        btnCargar.addActionListener(this::btnCargarActionPerformed);
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(this::btnGuardarActionPerformed);
 
-        btnReprogramar.setText("Reprogramar Cita");
-        btnReprogramar.addActionListener(this::btnReprogramarActionPerformed);
+        btnGestionarCitas.setText("Gestionar Citas");
+        btnGestionarCitas.addActionListener(this::btnGestionarCitasActionPerformed);
 
-        btnCancelar.setText("Cancelar Cita");
-        btnCancelar.addActionListener(this::btnCancelarActionPerformed);
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(this::btnEliminarActionPerformed);
 
-        btnAgendar.setText("Nueva Cita");
-        btnAgendar.addActionListener(this::btnAgendarActionPerformed);
+        txtId.addActionListener(this::txtIdActionPerformed);
+
+        txtFullName.addActionListener(this::txtFullNameActionPerformed);
+
+        txtCedula.setText("Cedula:");
+
+        txtNombre.setText("Nombre:");
+
+        btnNuevo.setText("Nuevo");
+
+        jLabel6.setText("Gestion de pacientes:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(262, 262, 262)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(319, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(btnAgendar)
-                .addGap(28, 28, 28)
-                .addComponent(btnCargar)
-                .addGap(18, 18, 18)
-                .addComponent(btnReprogramar)
-                .addGap(35, 35, 35)
-                .addComponent(btnCancelar)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(86, 86, 86)
+                .addComponent(btnNuevo)
+                .addGap(100, 100, 100)
+                .addComponent(btnGuardar)
+                .addGap(80, 80, 80)
+                .addComponent(btnEliminar)
+                .addGap(159, 159, 159)
+                .addComponent(btnGestionarCitas)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(txtNombre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgendar)
-                    .addComponent(btnCargar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnReprogramar)
-                    .addComponent(btnCancelar))
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCedula)
+                    .addComponent(txtNombre)
+                    .addComponent(txtFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGestionarCitas)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnNuevo)
+                    .addComponent(btnGuardar))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
-        String code = javax.swing.JOptionPane.showInputDialog(this, "Código de la cita:");
-        String id = javax.swing.JOptionPane.showInputDialog(this, "Cédula del Paciente:");
-        String date = javax.swing.JOptionPane.showInputDialog(this, "Fecha (AAAA-MM-DD):");
-        String time = javax.swing.JOptionPane.showInputDialog(this, "Hora (HH:MM):");
-        String reason = javax.swing.JOptionPane.showInputDialog(this, "Motivo:");
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        String cedula = txtId.getText().trim();
+        String nombre = txtFullName.getText().trim();
 
-        if (code != null && id != null && date != null && time != null) {
-            try {
-                patients.Patient p = control.findPatient(id);
-                if (p == null) {
-                    showError("El paciente no existe.");
-                    return;
-                }
-                Appointment app = new Appointment(code, p, java.time.LocalDate.parse(date), java.time.LocalTime.parse(time), reason);
-                if (control.scheduleAppointment(app)) {
-                    showMessage("Cita registrada.");
-                    actualizarTabla();
-                } else {
-                    showError("Código duplicado.");
-                }
-            } catch (Exception e) {
-                showError("Formato de fecha u hora inválido.");
-            }
-        }
-    }//GEN-LAST:event_btnAgendarActionPerformed
-
-    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
-        actualizarTabla();
-    }//GEN-LAST:event_btnCargarActionPerformed
-
-    private void btnReprogramarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReprogramarActionPerformed
-        if (vistaCitas == null) {
-            showError("No hay tabla de citas conectada.");
+        if (cedula.isEmpty() || nombre.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor complete todos los campos.");
             return;
         }
-        String code = vistaCitas.getSeleccionado();
-        if (code == null) {
-            showError("Seleccione una cita de la tabla.");
+
+    
+        javax.swing.JOptionPane.showMessageDialog(this, "Paciente guardado exitosamente.");
+        limpiarCampos();
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnGestionarCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarCitasActionPerformed
+        Frmappointments frmCitas = new Frmappointments();
+        frmCitas.setVisible(true);
+    }//GEN-LAST:event_btnGestionarCitasActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String cedula = txtId.getText().trim();
+
+        if (cedula.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese o seleccione la cédula a eliminar.");
             return;
         }
-        String newDate = javax.swing.JOptionPane.showInputDialog(this, "Nueva fecha (AAAA-MM-DD):");
-        String newTime = javax.swing.JOptionPane.showInputDialog(this, "Nueva hora (HH:MM):");
 
-        if (newDate != null && newTime != null) {
-            try {
-                if (control.rescheduleAppointment(code, java.time.LocalDate.parse(newDate), java.time.LocalTime.parse(newTime))) {
-                    showMessage("Cita reprogramada.");
-                    actualizarTabla();
-                } else {
-                    showError("No se pudo reprogramar.");
-                }
-            } catch (Exception e) {
-                showError("Formato inválido.");
-            }
-        }
-    }//GEN-LAST:event_btnReprogramarActionPerformed
+    
+        javax.swing.JOptionPane.showMessageDialog(this, "Paciente eliminado.");
+        limpiarCampos();
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        if (vistaCitas == null) {
-            showError("No hay tabla de citas conectada.");
-            return;
-        }
-        String code = vistaCitas.getSeleccionado();
-        if (code == null) {
-            showError("Seleccione una cita de la tabla.");
-            return;
-        }
-        if (control.cancelAppointment(code)) {
-            showMessage("Cita cancelada.");
-            actualizarTabla();
-        } else {
-            showError("No se pudo cancelar la cita.");
-        }
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
 
+    private void txtFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFullNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFullNameActionPerformed
+    private void limpiarCampos() {
+    txtId.setText("");
+    txtFullName.setText("");
+    txtId.requestFocus();
+}
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
+    } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+        logger.log(java.util.logging.Level.SEVERE, null, ex);
+    }
 
-        java.awt.EventQueue.invokeLater(() -> new FrmPatients().setVisible(true));
+    java.awt.EventQueue.invokeLater(() -> {
+        Frmappointments tablaCitas = new Frmappointments();
+        tablaCitas.setVisible(true);
+
+        FrmPatients ventanaBotones = new FrmPatients(tablaCitas);
+        ventanaBotones.setVisible(true);
+    });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgendar;
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCargar;
-    private javax.swing.JButton btnReprogramar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGestionarCitas;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel txtCedula;
+    private javax.swing.JTextField txtFullName;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JLabel txtNombre;
     // End of variables declaration//GEN-END:variables
 }

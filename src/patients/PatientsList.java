@@ -13,6 +13,25 @@ import java.util.HashMap;
  * @author ricar
  */
 public class PatientsList implements KeyDinamicsLists<Patient, String> {
+
+    private static final PatientsList instance = new PatientsList();
+
+    public static PatientsList getInstance() {
+        return instance;
+    }
+
+    public static boolean removePatientById(String id) {
+        return instance.remove(id);
+    }
+
+    public static Patient findPatientById(String id) {
+        return instance.get(id);
+    }
+
+    public static boolean addPatient(Patient newPatient) {
+        return instance.add(newPatient);
+    }
+
     private HashMap<String, Patient> patients;
 
     public PatientsList() {
