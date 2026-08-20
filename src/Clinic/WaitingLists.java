@@ -4,16 +4,14 @@
  */
 package Clinic;
 
-import java.util.Iterator;
-
 /**
  *
  * @author matam
  * @param <T>
+ * @param <K>
  */
-public interface DynamicsList<T> {
-    public boolean add(T item);
-    public Iterator<T> getALL();
-    public int size();
-    public boolean isEmpty();
+public interface WaitingLists <T,K> extends DynamicsList<T>{
+    public T get(K id);
+    public boolean remove(K id);
 }
+

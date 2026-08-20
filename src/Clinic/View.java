@@ -4,16 +4,14 @@
  */
 package Clinic;
 
-import java.util.Iterator;
-
 /**
  *
  * @author matam
  * @param <T>
  */
-public interface DynamicsList<T> {
-    public boolean add(T item);
-    public Iterator<T> getALL();
-    public int size();
-    public boolean isEmpty();
+public interface View <T>{
+    public void clear();
+    public void showData(T data);
+    public void showError(String error);
+    public void showMessage (String message);
 }

@@ -9,7 +9,7 @@ package Clinic;
  * @author josea
  * @param <T>
  */
-public interface SequentialDynamicsLists <T> extends DynamicsList<T>{
+public interface SequentialDynamicsLists<T> extends DynamicsList<T> {
     public T get();
     public boolean remove();
 }
